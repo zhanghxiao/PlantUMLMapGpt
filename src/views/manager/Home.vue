@@ -317,7 +317,7 @@ export default {
         const generateDiagram = async () => {
             try {
                 const response = await fetch(
-                    'https://mistpe-flask-spaceswdt3.hf.space/v1/images/generations',
+                    'https://mistpe-flask.hf.space/v1/images/generations',
                     {
                         method: 'POST',
                         headers: {
