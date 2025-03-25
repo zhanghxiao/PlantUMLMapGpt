@@ -122,7 +122,7 @@ export default {
                                 }
                             ],
                             stream: true,
-                            model: `gpt-4o-mini`,
+                            model: `claude-3-5-haiku-20241022`,
                             temperature: 0.5,
                             presence_penalty: 2
                         })
