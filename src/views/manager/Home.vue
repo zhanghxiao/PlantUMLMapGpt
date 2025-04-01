@@ -268,9 +268,38 @@ export default {
                             body: JSON.stringify({
                                 messages: [
                                     {
-                                        role: 'system',
-                                        content: `我想使用代码创建一个《${title.value}》的思维导图，其中包含多个主题和子主题，以及叶子节点。请你提供一些Markdown格式的文本。在Markdown格式中，首行必须是@startmindmap，结尾必须是@endmindmap，* 表示中央主题， ** 表示主要主题，*** 表示子主题，**** 表示叶子节点。请参照以上格式，在markdown代码块中帮我创建一个有效的思维导图。下面是参考内容，如果有请参考，如果显示暂无则请你直接生成不用使用参考内容:${referenceContent.value ? referenceContent.value : '暂无'}`
-                                    }
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.VUE_APP_API_KEY}`
+    },
+    body: JSON.stringify({
+        messages: [
+            {
+                role: 'system',
+                content: `我将设计思维导图，请以特定格式输出`
+            },
+            {
+                role: 'user',
+                content: `请为"${title.value}"创建一个思维导图。思维导图应该使用以下格式：
+                @startmindmap
+                * 中央主题
+                ** 主要主题1
+                *** 子主题1
+                **** 叶子节点1
+                ** 主要主题2
+                *** 子主题2
+                @endmindmap
+                
+                ${referenceContent.value ? '参考内容：' + referenceContent.value : '请根据标题直接生成合适的内容'}`
+            }
+        ],
+        stream: true,
+        model: `claude-3-5-haiku-20241022`,
+        temperature: 0.5,
+        presence_penalty: 2
+    })
+}
                                 ],
                                 stream: true,
                                 model: `claude-3-5-haiku-20241022`,
