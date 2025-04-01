@@ -118,6 +118,10 @@ export default {
                             messages: [
                                 {
                                     role: 'system',
+                                    content: `我将设计流程图，请以特定格式输出`
+                                },
+                                {
+                                    role: 'user',
                                     content: `我想使用代码创建一个《${title.value}》的流程图，其中包含多个活动、决策点和循环。请你提供Markdown格式的文本。在Markdown格式中，首行必须是@startuml，结尾必须是@enduml。使用:activity;表示活动，if (condition) then (yes)和else (no)表示决策分支，:开始;表示开始，:结束;表示结束。对于循环，使用repeat和repeat while (condition)表示do-while循环，使用while (condition)和endwhile表示while循环。请使用->连接各个元素。参照以上格式，在markdown代码块中帮我创建一个有效的流程图。请根据流程图的一般结构创建一个包含决策和循环的示例，节点显示时的语言根据标题的语言决定。下面是参考内容，如果有请参考，如果显示暂无则请你直接生成不用使用参考内容:${referenceContent.value ? referenceContent.value : '暂无'}`
                                 }
                             ],

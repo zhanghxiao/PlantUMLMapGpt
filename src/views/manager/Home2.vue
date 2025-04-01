@@ -118,6 +118,10 @@ export default {
                             messages: [
                                 {
                                     role: 'system',
+                                    content: `我将设计用例图，请以特定格式输出`
+                                },
+                                {
+                                    role: 'user',
                                     content: `我想使用代码创建一个《${title.value}》的用例图。请你提供Markdown格式的文本。节点显示时的语言根据标题的语言决定，首选中文，在Markdown格式中，首行必须是@startuml，结尾必须是@enduml。使用:Actor:或actor关键字定义角色，用圆括号()或usecase关键字定义用例。使用-->或->连接角色和用例，可以用冒号添加标签。可以用<<>>定义构造类型，用as关键字定义别名。使用<|--表示继承关系。可以用note添加注释，用package或rectangle进行分组。可以使用skinparam自定义样式。请使用left to right direction设置图表方向。参照以上格式，在markdown代码块中帮我创建一个有效的用例图。请包含至少一个角色、多个用例、关系和注释，以展示用例图的主要特征。下面是参考内容，如果有请参考，如果显示暂无则请你直接生成不用使用参考内容:${referenceContent.value ? referenceContent.value : '暂无'}`
                                 }
                             ],

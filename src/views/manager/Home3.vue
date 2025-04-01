@@ -118,6 +118,10 @@ export default {
                             messages: [
                                 {
                                     role: 'system',
+                                    content: `我将设计时序图，请以特定格式输出`
+                                },
+                                {
+                                    role: 'user',
                                     content: `我想使用代码创建一个《${title.value}》的时序图，其中包含多个参与者、消息交互、生命线激活/撤销，以及可能的分组、注释等高级特性。请你提供PlantUML格式的代码。节点显示时的语言根据标题的语言决定，首选中文，在PlantUML格式中，首行必须是@startuml，结尾必须是@enduml。参与者可以用participant或actor等关键字定义，消息交互用->或<-等箭头表示，激活和撤销可以用activate和deactivate关键字。此外，可以使用alt、loop等关键字创建分组，使用note关键字添加注释。请参照以上格式和文档中提供的时序图语法，在代码块中帮我创建一个有效的时序图。下面是参考内容，如果有请参考，如果显示暂无则请你直接生成不用使用参考内容:${referenceContent.value ? referenceContent.value : '暂无'}`
                                 }
                             ],
