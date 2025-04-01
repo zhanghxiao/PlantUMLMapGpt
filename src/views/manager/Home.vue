@@ -268,14 +268,6 @@ export default {
                             body: JSON.stringify({
                                 messages: [
                                     {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.VUE_APP_API_KEY}`
-    },
-    body: JSON.stringify({
-        messages: [
-            {
                 role: 'system',
                 content: `我将设计思维导图，请以特定格式输出`
             },
@@ -293,13 +285,6 @@ export default {
                 
                 ${referenceContent.value ? '参考内容：' + referenceContent.value : '请根据标题直接生成合适的内容'}`
             }
-        ],
-        stream: true,
-        model: `claude-3-5-haiku-20241022`,
-        temperature: 0.5,
-        presence_penalty: 2
-    })
-}
                                 ],
                                 stream: true,
                                 model: `claude-3-5-haiku-20241022`,
